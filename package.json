@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "align",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -8,7 +8,12 @@
     "dev": "remix dev --manual",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "imports": {
+    "#*": "./*"
   },
   "dependencies": {
     "@remix-run/css-bundle": "^2.5.1",
@@ -27,9 +32,13 @@
     "@conform-to/zod": "^0.9.1",
     "@faker-js/faker": "^8.3.1",
     "@remix-run/dev": "^2.5.1",
+    "@testing-library/jest-dom": "^6.2.1",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
@@ -38,7 +47,9 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "fs-extra": "^11.2.0",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "vite": "^5.0.12",
+    "vitest": "^1.2.1"
   },
   "engines": {
     "node": ">=18.0.0"
