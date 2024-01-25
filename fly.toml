@@ -24,3 +24,15 @@ primary_region = "lhr"
   cpu_kind = "shared"
   cpus = 1
   memory_mb = 1024
+
+# TODO: Uncomment health checks below
+# [[services.http_checks]]
+#     grace_period = "10s"
+#     interval = "10000"
+#     method = "GET"
+#     timeout = "2000"
+#     path = "/"
+#     protocol = "http"
+#     restart_limit = 0
+
+# TODO: Add healthcheck endpoint 
