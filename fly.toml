@@ -6,6 +6,10 @@
 app = "align-planner"
 primary_region = "lhr"
 
+#[mounts]
+#  source = "data"
+#  destination = "/data"
+
 [build]
 
 [http_service]
