@@ -1,10 +1,12 @@
 node_modules
-.DS_Store
-
-/.cache
-/build
-/public/build
 .env
+/build
+/.vscode
+prisma/data.db
+prisma/data.db-journal
+Dockerfile
+.dockerignore
+.git
 
 /prisma/data.db
 /test-results/
