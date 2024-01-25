@@ -40,6 +40,10 @@ RUN npm prune --omit=dev
 # Final stage for app image
 FROM base
 
+# Make SQLite CLI accessible via fly ssh console
+# $ fly ssh console -C database-cli
+# RUN echo "#!/bin/sh\nset -x\nsqlite3 \$DATABASE_URL" > /usr/local/bin/database-cli && chmod +x /usr/local/bin/database-cli
+
 # Copy built application
 COPY --from=build /app /app
 # COPY --from=build /app/node_modules/.prisma /app/node_modules/.prisma
