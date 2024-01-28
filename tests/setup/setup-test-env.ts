@@ -1,10 +1,26 @@
 import "dotenv/config";
 import { installGlobals } from "@remix-run/node";
-import { beforeEach, vi, type MockInstance } from "vitest";
+import {
+  beforeAll,
+  afterEach,
+  beforeEach,
+  afterAll,
+  vi,
+  type MockInstance,
+} from "vitest";
+import { server } from "../../app/mocks";
 
 installGlobals();
 
 export let consoleError: MockInstance<Parameters<(typeof console)["error"]>>;
+
+beforeAll(() => {
+  console.log("🔶 MSW enabled.");
+  server.listen({ onUnhandledRequest: "warn" });
+  server.events.on("request:start", ({ request }) => {
+    console.info("🔶 MSW intercepted:", request.method, request.url);
+  });
+});
 
 beforeEach(() => {
   const originalConsoleError = console.error;
@@ -18,3 +34,7 @@ beforeEach(() => {
     }
   );
 });
+
+afterEach(() => server.resetHandlers());
+
+afterAll(() => server.close());
