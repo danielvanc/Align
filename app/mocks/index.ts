@@ -11,7 +11,6 @@ const miscHandlers = [
 ];
 
 export const server = setupServer(...miscHandlers, ...handlers);
-
 server.listen({ onUnhandledRequest: "warn" });
 
 server.events.on("request:start", ({ request }) => {
