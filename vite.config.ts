@@ -6,11 +6,13 @@ import { defineConfig } from "vite";
 installGlobals();
 
 export default defineConfig({
+  build: { manifest: true },
   server: {
     port: 3000,
   },
   plugins: [
     remix({
+      manifest: true,
       ignoredRouteFiles: ["**/.*"],
     }),
     tsconfigPaths(),
