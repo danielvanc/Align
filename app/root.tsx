@@ -5,7 +5,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import "./styles/tailwind.css";
+import "./styles/tailwind.css?url";
 
 export default function App() {
   return (
